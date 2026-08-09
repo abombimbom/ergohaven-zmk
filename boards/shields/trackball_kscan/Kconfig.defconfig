@@ -1,0 +1,15 @@
+if SHIELD_TRACKBALL_KSCAN
+
+config ZMK_KEYBOARD_NAME
+    default "EH Imperial44 TB"
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_POINTING
+    default y
+
+endif
