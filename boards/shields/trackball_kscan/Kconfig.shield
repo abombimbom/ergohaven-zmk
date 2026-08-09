@@ -1,0 +1,2 @@
+config SHIELD_TRACKBALL_KSCAN
+    def_bool $(shields_list_contains,trackball_kscan)
