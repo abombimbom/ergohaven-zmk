@@ -1,2 +1,29 @@
-config SHIELD_TRACKBALL
-    def_bool $(shields_list_contains,trackball)
+if SHIELD_TRACKBALL || SHIELD_TRACKBALL_DONGLE
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_POINTING
+    default y
+
+endif
+
+if SHIELD_TRACKBALL
+
+config ZMK_KEYBOARD_NAME
+    default "EH TB Mini v3"
+
+config ZMK_SPLIT
+    default n
+
+endif
+
+if SHIELD_TRACKBALL_DONGLE
+
+config ZMK_KEYBOARD_NAME
+    default "EH TB Royal Dongle"
+
+config ZMK_SPLIT
+    default y
+
+endif
