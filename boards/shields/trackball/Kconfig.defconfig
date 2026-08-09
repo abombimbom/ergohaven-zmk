@@ -1,3 +1,13 @@
+if SHIELD_TRACKBALL || SHIELD_TRACKBALL_DONGLE
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_POINTING
+    default y
+
+endif
+
 if SHIELD_TRACKBALL
 
 config ZMK_KEYBOARD_NAME
@@ -6,10 +16,14 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT
     default n
 
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
+endif
 
-config ZMK_POINTING
+if SHIELD_TRACKBALL_DONGLE
+
+config ZMK_KEYBOARD_NAME
+    default "EH TB Royal Dongle"
+
+config ZMK_SPLIT
     default y
 
 endif
