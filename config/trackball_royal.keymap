@@ -21,15 +21,6 @@
         >;
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        base_combo {
-            bindings = <&mkp MB3>;
-            key-positions = <0 1>;
-        };
-    };
-
     behaviors {
         adj1: adj1 {
             compatible = "zmk,behavior-tap-dance";
@@ -44,6 +35,24 @@
             #binding-cells = <0>;
             bindings = <&bt BT_NXT>, <&bt BT_CLR_ALL>;
         };
+
+        ht_scroll_mb3: ht_scroll_mb3 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_SCROLL_MB3";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <170>;
+            bindings = <&mo>, <&mkp>;
+        };
+
+        ht_ctrl_sniper: ht_ctrl_sniper {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_CTRL_SNIPER";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <170>;
+            bindings = <&kp>, <&tog>;
+        };
     };
 
     keymap {
@@ -51,9 +60,9 @@
 
         base {
             bindings = <
-&mkp MB1  &mkp MB2
-&mo 2     &mo 1
-&adj1     &adj2
+&mkp MB1                              &ht_scroll_mb3 1 MB3
+&mkp MB2                              &ht_ctrl_sniper LCTRL 2
+&adj1                                 &adj2
             >;
 
             display-name = "Base";
